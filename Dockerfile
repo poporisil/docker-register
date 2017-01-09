@@ -1,4 +1,12 @@
-FROM python:2-onbuild
+FROM python:2.7-alpine
+
+ENV WORK_DIR /usr/src/app
+RUN mkdir -p $WORK_DIR
+WORKDIR $WORK_DIR
+
+ADD docker-register.py ./
+ADD requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 ENTRYPOINT [ "python" ]
 CMD [ "./docker-register.py" ]
