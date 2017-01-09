@@ -9,4 +9,4 @@ ADD requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 RUN chmod +x ./docker-register.py
 
-ENTRYPOINT [ "$WORK_DIR/docker-register.py" ]
+CMD [ "./docker-register.py" ]
