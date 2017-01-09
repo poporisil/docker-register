@@ -65,7 +65,7 @@ class DockerRegister(threading.Thread):
                 binded = []
                 for port in container['Ports']:
                     if 'PublicPort' in port:
-                        binded.append('%s:%d->%d/%s'%(self.internalIp, port['PublicPort'], port['PrivatePort'], port['Type']))
+                        binded.append('%s:%d-%d/%s'%(self.internalIp, port['PublicPort'], port['PrivatePort'], port['Type']))
                 if binded:
                     key = container['Image'].split(':')[0] + '/' + container['Id']
                     bindedContainers[key] = ','.join(binded)
