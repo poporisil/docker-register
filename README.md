@@ -6,12 +6,10 @@ How to start
 --------------------
 
 ```
-usage: docker-register.py [-h] [-e ETCD_URL] [-d DOCKER_URL]
-                          [--docker-api-ver DOCKER_API_VER] [-t TTL]
-                          [-l LOG_PATH]
+# python docker-register.py
 ```
 
-Options
+Usage
 --------------------
 ```
   -h, --help            show this help message and exit
