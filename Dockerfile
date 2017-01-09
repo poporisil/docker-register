@@ -6,4 +6,4 @@ ENV DOCKER_URL	unix://var/run/docker.sock
 ENV DOCKER_API_VER	1.23
 ENV TTL			15
 
-ENTRYPOINT [ "python", "./docker-register.py -e $ETCD_URL -d $DOCKER_URL --docker-api-ver $DOCKER_API_VER -t $TTL" ]
+CMD [ "python", "./docker-register.py", "-e", "$ETCD_URL", "-d", "$DOCKER_URL", "--docker-api-ver", "$DOCKER_API_VER", "-t", "$TTL" ]
