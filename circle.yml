@@ -6,6 +6,10 @@ compile:
   override:
     - bash ./docker_build.sh
     
+test:
+  override:
+    - echo "ignore test..."
+
 deployment:
   hub:
     branch: master
