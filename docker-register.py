@@ -80,8 +80,8 @@ class DockerRegister(threading.Thread):
             logger.debug('register %s' % key)
             try:
                 self.ec.write('/containers/' + key, value, ttl=ttl)
-            except etcd.EtcdConnectionFailed:
-                logger.exception('etcd connection fail')
+            except Exception:
+                logger.exception('etcd write fail')
         pass
 
     def run(self):
