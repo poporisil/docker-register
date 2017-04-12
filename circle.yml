@@ -1,0 +1,18 @@
+machine:
+  services:
+    - docker
+
+compile:
+  override:
+    - bash ./docker_build.sh
+    
+test:
+  override:
+    - echo "ignore test..."
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - bash ./docker_release.sh
