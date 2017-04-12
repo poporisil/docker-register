@@ -78,7 +78,10 @@ class DockerRegister(threading.Thread):
         logger.debug('register containers...')
         for key, value in containers.iteritems():
             logger.debug('register %s' % key)
-            self.ec.write('/containers/' + key, value, ttl=ttl)
+            try:
+                self.ec.write('/containers/' + key, value, ttl=ttl)
+            except EtcdConnectionFailed:
+                logger.exception('etcd connection fail')
         pass
 
     def run(self):
